@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TechRevive AI</title>
+</head>
+
+<body>
+
+    <h1>TechRevive AI</h1>
+    <p>Basic Phone & Device Diagnostic Tool</p>
+
+    <hr>
+
+    <h2>Check Your Device</h2>
+
+    <label for="problem">What problem are you having?</label>
+
+    <select id="problem">
+        <option value="">-- Select a problem --</option>
+        <option value="battery">Battery drains quickly</option>
+        <option value="charging">Phone is not charging</option>
+        <option value="slow">Phone is very slow</option>
+        <option value="overheating">Phone is overheating</option>
+        <option value="screen">Screen is not working properly</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="diagnose()">Diagnose</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        function diagnose() {
+
+            let problem = document.getElementById("problem").value;
+            let result = document.getElementById("result");
+
+            if (problem === "") {
+                result.innerHTML = "<p>Please select a problem.</p>";
+            }
+
+            else if (problem === "battery") {
+                result.innerHTML =
+                    "<h3>Possible Cause</h3>" +
+                    "<p>Your battery may be degraded or an app may be using too much power.</p>" +
+                    "<h3>Suggested Action</h3>" +
+                    "<p>Check battery usage, close unnecessary apps, and consider checking the battery health.</p>";
+            }
+
+            else if (problem === "charging") {
+                result.innerHTML =
+                    "<h3>Possible Cause</h3>" +
+                    "<p>The charging cable, charging port, or charger may have a problem.</p>" +
+                    "<h3>Suggested Action</h3>" +
+                    "<p>Try another compatible charger and carefully check the charging port.</p>";
+            }
+
+            else if (problem === "slow") {
+                result.innerHTML =
+                    "<h3>Possible Cause</h3>" +
+                    "<p>Your device may have low storage, too many background apps, or outdated software.</p>" +
+                    "<h3>Suggested Action</h3>" +
+                    "<p>Free up storage, restart the device, and update the software.</p>";
+            }
+
+            else if (problem === "overheating") {
+                result.innerHTML =
+                    "<h3>Possible Cause</h3>" +
+                    "<p>Heavy applications, high temperatures, or a battery problem may cause overheating.</p>" +
+                    "<h3>Suggested Action</h3>" +
+                    "<p>Close demanding apps and allow the device to cool down.</p>";
+            }
+
+            else if (problem === "screen") {
+                result.innerHTML =
+                    "<h3>Possible Cause</h3>" +
+                    "<p>The problem may be related to the display, software, or physical damage.</p>" +
+                    "<h3>Suggested Action</h3>" +
+                    "<p>Restart the device and check for visible damage. If the problem continues, seek professional repair.</p>";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
